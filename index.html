@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Perdão</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff5f5 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 50px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 30px rgba(211, 47, 47, 0.1);
+            animation: fadeIn 2s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid rgba(211, 47, 47, 0.1);
+        }
+
+        .print-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #d32f2f;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .print-button:hover {
+            opacity: 1;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 36px;
+            color: #d32f2f;
+            animation: floatHeart 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(-20px) translateX(-50%); }
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #d32f2f;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+        }
+
+        .button {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #b71c1c;
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .image-gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(211, 47, 47, 0.3);
+            animation: floatingHeart 6s linear infinite;
+        }
+
+        @keyframes floatingHeart {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .fade-transition {
+            animation: fadeTransition 2s ease-in-out;
+        }
+
+        @keyframes fadeTransition {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media print {
+            body {
+                background: none;
+                height: auto;
+                padding: 20px;
+            }
+            .container {
+                box-shadow: none;
+                overflow: visible;
+                height: auto;
+                max-height: none;
+                padding: 0;
+                width: 100%;
+            }
+            .hearts-container, .floating-hearts, .print-button, .button, #inicial {
+                display: none;
+            }
+            p {
+                page-break-inside: avoid;
+            }
+            .image-gallery {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-top: 30px;
+            }
+            h1 {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="hearts-container"></div>
+    <div class="container" id="container">
+        <div class="floating-hearts">❤</div>
+        <h1>Carta Aberta para o Amor da Minha Vida</h1>
+        <p>A seguir, compartilho uma carta aberta para o amor da minha vida. Ela estará sempre disponível, para que possa ser lida a qualquer momento, em qualquer lugar. Mas, antes de prosseguir, preciso saber: você realmente deseja continuar essa leitura?</p>
+        <button class="button" onclick="abrirPedidoDePerdao()">Clique aqui para ler a carta</button>
+    </div>
+
+    <script>
+        function criarCoracao() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.getElementById('hearts-container').appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(criarCoracao, 300);
+
+        function atualizarContador() {
+            const inicio = new Date('2024-03-31T00:00:00');
+            const agora = new Date();
+            const diff = agora - inicio;
+
+            const anos = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const meses = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            const dias = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+            const contador = document.getElementById('contador');
+            if (contador) {
+                const anoText = anos === 1 ? 'ano' : 'anos';
+                const mesText = meses === 1 ? 'mês' : 'meses';
+                const diaText = dias === 1 ? 'dia' : 'dias';
+                const horaText = horas === 1 ? 'hora' : 'horas';
+                const minutoText = minutos === 1 ? 'minuto' : 'minutos';
+                const segundoText = segundos === 1 ? 'segundo' : 'segundos';
+                contador.textContent = `${anos} ${anoText}, ${meses} ${mesText}, ${dias} ${diaText}, ${horas} ${horaText}, ${minutos} ${minutoText} e ${segundos} ${segundoText}`;
+            }
+        }
+
+        function abrirPedidoDePerdao() {
+            const container = document.getElementById('container');
+            container.classList.add('fade-transition');
+            
+            setTimeout(() => {
+            container.innerHTML = `
+                <button onclick="window.print()" class="print-button" title="Imprimir">🖨️</button>
+                <h1>Carta Aberta para o Amor da Minha Vida</h1>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Minha querida Natália,</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Eu nem sei por onde começar… Nunca imaginei que viveria uma situação como essa, mas preciso abrir meu coração.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Desde que brigamos, todos os dias acordo com a consciência pesada. É como se uma parte de mim tivesse morrido. Essa é exatamente a sensação: estar morto por dentro, por ter te magoado.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Antes de você, eu era alguém vazio, triste, que nunca tinha conhecido o amor verdadeiro. Sempre me senti frio, incompleto, buscando em pessoas rasas algo que nunca consegui encontrar. O único amor que conhecia era o dos meus pais. Eu acreditava que jamais sentiria algo além disso... até encontrar você.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">E pensar que você sempre esteve ali, tão perto. Aos 13 anos, quando meu pai me disse: “Por que você não namora com a Natália?”, eu respondi: “Pai, ela já namora e não gosta de mim”. Mal sabia eu que, anos depois, você seria justamente quem preencheria tudo o que me faltava.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Você se tornou meu mundo, meu universo, meu motivo para seguir em frente. Você é a razão de cada música do Lionel Richie ou dos Bee Gees me fazer lembrar de você. Você me ensinou até a achar graça de coisas que antes eu considerava bobas: nossas vozinhas finas, os apelidos carinhosos, os gestos que só nós entendemos. Eu mudei porque encontrei em você a felicidade que sempre procurei.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Hoje, mesmo com o erro que cometi, o que carrego dentro de mim é arrependimento. E ele é tão grande que não cabe em palavras. Sei que muitos podem me julgar, sei que posso ser criticado, mas nada nunca vai mudar o fato de que eu te amo. Nunca brinquei com você quando disse que queria me casar, ter filhos e construir uma vida ao seu lado. Foram sempre as palavras mais sinceras que já saíram da minha boca.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Eu sei que te magoei, e por isso mereço o pior dos castigos. Mas, mesmo assim, você mostrou compaixão e me deu sete dias para mudar. E eu prometo: vou dar o meu melhor. Guarde aquela carta que escreveu para o seu marido — quero lê-la no próximo ano, quando estivermos juntos, mais fortes do que nunca.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Prometo te amar acima de todas as coisas. Prometo te amar em dobro, em triplo, o quanto for necessário.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Não sei qual será a sua escolha no final, mas quero dizer que entenderei, e sem pestanejar, respeitarei a sua decisão..</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Natália Dias, meu amor por você não pode ser comparado a nada neste mundo. Eu te amo.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Para sempre seu,</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">José Amadeu.</p>
+                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%; margin-top: 30px; font-style: italic; color: #d32f2f;">
+                    Tempo juntos:<br>
+                    <span id="contador"></span><br>
+                    <span style="font-size: 16px; color: #d32f2f; margin-top: 10px; display: block;"> e a cada segundo que passa, eu te amo mais. </span>
+                </p>
+                <div class="image-gallery">
+                    <img src="SOURCE/foto1.jpeg.jpeg" alt="Foto 1">
+                    <img src="SOURCE/foto2.jpeg.jpeg" alt="Foto 2">
+                    <img src="SOURCE/foto3.jpeg.jpeg" alt="Foto 3">
+                </div>
+                <button class="button" onclick="window.location.reload()">Voltar</button>
+            `;
+            setInterval(atualizarContador, 1000);
+            atualizarContador();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

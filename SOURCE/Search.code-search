@@ -1,0 +1,109 @@
+# Query: 
+# ContextLines: 1
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Perdão</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 50px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 3s ease-out;
+        }
+
+        h1 {
+            color: #d32f2f;
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: bounceIn 2s ease-out;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            animation: fadeInText 4s ease-in-out;
+            color: #555;
+        }
+
+        .heart {
+            font-size: 80px;
+            color: #e91e63;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .button {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #b71c1c;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Meu Pedido de Perdão</h1>
+        <div class="heart">❤️</div>
+        <p>Amor, sei que errei e não há palavras que possam expressar o quanto me arrependo. Eu falhei, mas te peço, do fundo do meu coração, que me dê a chance de mostrar que posso ser uma pessoa melhor para você. Te amo mais do que qualquer coisa nesse mundo, e estou disposto a fazer o que for necessário para consertar meu erro.</p>
+        <button class="button" onclick="window.location.href='https://www.exemplo.com'">Perdoa-me?</button>
+    </div>
+
+    <script>
+        // Animações adicionais com JavaScript
+        document.querySelector('.button').addEventListener('click', () => {
+            alert("Obrigado por me ouvir. Espero poder te mostrar o quanto te amo e o quanto estou arrependido.");
+        });
+    </script>
+</body>
+</html>
