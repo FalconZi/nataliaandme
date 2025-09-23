@@ -264,36 +264,66 @@
             container.classList.add('fade-transition');
             
             setTimeout(() => {
-            container.innerHTML = `
-                <button onclick="window.print()" class="print-button" title="Imprimir">🖨️</button>
-                <h1>Carta Aberta para o Amor da Minha Vida</h1>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Minha querida Natália,</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Eu nem sei por onde começar… Nunca imaginei que viveria uma situação como essa, mas preciso abrir meu coração.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Desde que brigamos, todos os dias acordo com a consciência pesada. É como se uma parte de mim tivesse morrido. Essa é exatamente a sensação: estar morto por dentro, por ter te magoado.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Antes de você, eu era alguém vazio, triste, que nunca tinha conhecido o amor verdadeiro. Sempre me senti frio, incompleto, buscando em pessoas rasas algo que nunca consegui encontrar. O único amor que conhecia era o dos meus pais. Eu acreditava que jamais sentiria algo além disso... até encontrar você.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">E pensar que você sempre esteve ali, tão perto. Aos 13 anos, quando meu pai me disse: “Por que você não namora com a Natália?”, eu respondi: “Pai, ela já namora e não gosta de mim”. Mal sabia eu que, anos depois, você seria justamente quem preencheria tudo o que me faltava.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Você se tornou meu mundo, meu universo, meu motivo para seguir em frente. Você é a razão de cada música do Lionel Richie ou dos Bee Gees me fazer lembrar de você. Você me ensinou até a achar graça de coisas que antes eu considerava bobas: nossas vozinhas finas, os apelidos carinhosos, os gestos que só nós entendemos. Eu mudei porque encontrei em você a felicidade que sempre procurei.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Hoje, mesmo com o erro que cometi, o que carrego dentro de mim é arrependimento. E ele é tão grande que não cabe em palavras. Sei que muitos podem me julgar, sei que posso ser criticado, mas nada nunca vai mudar o fato de que eu te amo. Nunca brinquei com você quando disse que queria me casar, ter filhos e construir uma vida ao seu lado. Foram sempre as palavras mais sinceras que já saíram da minha boca.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Eu sei que te magoei, e por isso mereço o pior dos castigos. Mas, mesmo assim, você mostrou compaixão e me deu sete dias para mudar. E eu prometo: vou dar o meu melhor. Guarde aquela carta que escreveu para o seu marido — quero lê-la no próximo ano, quando estivermos juntos, mais fortes do que nunca.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Prometo te amar acima de todas as coisas. Prometo te amar em dobro, em triplo, o quanto for necessário.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Não sei qual será a sua escolha no final, mas quero dizer que entenderei, e sem pestanejar, respeitarei a sua decisão..</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Natália Dias, meu amor por você não pode ser comparado a nada neste mundo. Eu te amo.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Para sempre seu,</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">José Amadeu.</p>
-                <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%; margin-top: 30px; font-style: italic; color: #d32f2f;">
-                    Tempo juntos:<br>
-                    <span id="contador"></span><br>
-                    <span style="font-size: 16px; color: #d32f2f; margin-top: 10px; display: block;"> e a cada segundo que passa, eu te amo mais. </span>
-                </p>
-                <div class="image-gallery">
-                    <img src="SOURCE/foto1.jpeg.jpeg" alt="Foto 1">
-                    <img src="SOURCE/foto2.jpeg.jpeg" alt="Foto 2">
-                    <img src="SOURCE/foto3.jpeg.jpeg" alt="Foto 3">
-                </div>
-                <button class="button" onclick="window.location.reload()">Voltar</button>
-            `;
-            setInterval(atualizarContador, 1000);
-            atualizarContador();
+                container.innerHTML = `
+                    <button onclick="window.print()" class="print-button" title="Imprimir">🖨️</button>
+                    <h1>Carta Aberta para o Amor da Minha Vida</h1>
+                    <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Minha querida Natália,</p>
+                    <p>Eu nem sei por onde começar… Nunca imaginei que viveria uma situação como essa, mas preciso abrir meu coração.</p>
+                    <p>Desde que brigamos, todos os dias acordo com a consciência pesada. É como se uma parte de mim tivesse morrido. Essa é exatamente a sensação: estar morto por dentro, por ter te magoado.</p>
+                    <p>Antes de você, eu era alguém vazio, triste, que nunca tinha conhecido o amor verdadeiro. Sempre me senti frio, incompleto, buscando em pessoas rasas algo que nunca consegui encontrar. O único amor que conhecia era o dos meus pais. Eu acreditava que jamais sentiria algo além disso... até encontrar você.</p>
+                    <p>E pensar que você sempre esteve ali, tão perto. Aos 13 anos, quando meu pai me disse: “Por que você não namora com a Natália?”, eu respondi: “Pai, ela já namora e não gosta de mim”. Mal sabia eu que, anos depois, você seria justamente quem preencheria tudo o que me faltava.</p>
+                    <p>Você se tornou meu mundo, meu universo, meu motivo para seguir em frente. Você é a razão de cada música do Lionel Richie ou dos Bee Gees me fazer lembrar de você. Você me ensinou até a achar graça de coisas que antes eu considerava bobas: nossas vozinhas finas, os apelidos carinhosos, os gestos que só nós entendemos. Eu mudei porque encontrei em você a felicidade que sempre procurei.</p>
+                    <p>Hoje, mesmo com o erro que cometi, o que carrego dentro de mim é arrependimento. E ele é tão grande que não cabe em palavras. Sei que muitos podem me julgar, sei que posso ser criticado, mas nada nunca vai mudar o fato de que eu te amo. Nunca brinquei com você quando disse que queria me casar, ter filhos e construir uma vida ao seu lado. Foram sempre as palavras mais sinceras que já saíram da minha boca.</p>
+                    <p>Eu sei que te magoei, e por isso mereço o pior dos castigos. Mas, mesmo assim, você mostrou compaixão e me deu sete dias para mudar. E eu prometo: vou dar o meu melhor. Guarde aquela carta que escreveu para o seu marido — quero lê-la no próximo ano, quando estivermos juntos, mais fortes do que nunca.</p>
+                    <p>Prometo te amar acima de todas as coisas. Prometo te amar em dobro, em triplo, o quanto for necessário.</p>
+                    <p>Não sei qual será a sua escolha no final, mas quero dizer que entenderei, e sem pestanejar, respeitarei a sua decisão..</p>
+                    <p>Natália Dias, meu amor por você não pode ser comparado a nada neste mundo. Eu te amo.</p>
+                    <p>Para sempre seu,</p>
+                    <p>José Amadeu.</p>
+                    <p style="margin-top: 30px; font-style: italic; color: #d32f2f;">
+                        Tempo juntos:<br>
+                        <span id="contador"></span><br>
+                        <span style="font-size: 16px; color: #d32f2f; margin-top: 10px; display: block;"> e a cada segundo que passa, eu te amo mais. </span>
+                    </p>
+                    <div class="image-gallery">
+                        <img src="SOURCE/foto1.jpeg.jpeg" alt="Foto 1">
+                        <img src="SOURCE/foto2.jpeg.jpeg" alt="Foto 2">
+                        <img src="SOURCE/foto3.jpeg.jpeg" alt="Foto 3">
+                    </div>
+                    <button class="button" onclick="abrirVideo()">Deseja continuar?</button>
+                    <button class="button" onclick="window.location.reload()">Voltar</button>
+                `;
+                setInterval(atualizarContador, 1000);
+                atualizarContador();
+            }, 1000);
+        }
+
+        function abrirVideo() {
+            const container = document.getElementById('container');
+            container.classList.add('fade-transition');
+
+            setTimeout(() => {
+                container.innerHTML = `
+                    <h1>Um pouco de nós...</h1>
+                    <video id="video1" controls autoplay style="width: 100%; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                        <source src="SOURCE/meandnat.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeos.
+                    </video>
+                    <button class="button" onclick="window.location.reload()">Voltar ao início</button>
+                `;
+
+                const video1 = document.getElementById('video1');
+                video1.addEventListener('ended', () => {
+                    container.innerHTML = `
+                        <h1>Um pouco de nós...</h1>
+                        <video id="video2" controls autoplay style="width: 100%; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                            <source src="SOURCE/meandnat2.mp4" type="video/mp4">
+                            Seu navegador não suporta a reprodução de vídeos.
+                        </video>
+                        <button class="button" onclick="window.location.reload()">Voltar ao início</button>
+                    `;
+                });
+
             }, 1000);
         }
     </script>
