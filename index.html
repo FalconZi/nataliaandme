@@ -266,7 +266,7 @@
             
             setTimeout(() => { 
                 container.innerHTML = `
-                <audio id="meuAudio" src="SOURCE/musica.mp3" autoplay loop onplay="this.volume = 0.03;"></audio>
+                <audio id="meuAudio" src="SOURCE/musica.mp3" autoplay loop onplay="this.volume = 0.03;"></audio>                
                     <h1>Carta Aberta para o Amor da Minha Vida</h1>
                     <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Minha querida Natália,</p>
                     <p>Eu nem sei por onde começar… Nunca imaginei que viveria uma situação como essa, mas preciso abrir meu coração.</p>
@@ -306,12 +306,12 @@
             setTimeout(() => {
                 container.innerHTML = `
                     <h1>Um pouco de nós...</h1>
-                    <video id="video1" controls autoplay style="width: 100%; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                    <video id="video1" controls autoplay onplay="this.volume = 0.5;" style="width: 100%; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
                         <source src="SOURCE/meandnat.mp4" type="video/mp4">
                         Seu navegador não suporta a reprodução de vídeos.
                     </video>
-                    <button class="button" onclick="window.location.reload()">Voltar ao início</button>
-                    <button class="button" onclick="abrirVideo2()">Deseja continuar?</button>
+                    <button class="button" onclick="abrirPedidoDePerdao()">Voltar</button>
+                    <button class="button" onclick="abrirVideo2()">Ainda quer continuar?</button>
                 `;
 
             }, 1000);
@@ -324,10 +324,11 @@
             setTimeout(() => {
                 container.innerHTML = `
                     <h1>Mais um pouco...</h1>
-                    <video id="video2" controls autoplay style="width: 100%; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                    <video id="video2" controls autoplay onplay="this.volume = 0.08;" style="width: 100%; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
                         <source src="SOURCE/meandnat2.mp4" type="video/mp4">
                         Seu navegador não suporta a reprodução de vídeos.
                     </video>
+                    <button class="button" onclick="abrirVideo()">Anterior</button>
                     <button class="button" onclick="window.location.reload()">Voltar ao início</button>
                 `;
 
