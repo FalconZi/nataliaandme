@@ -217,10 +217,11 @@
         <div class="floating-hearts">❤</div>
         <h1>Carta Aberta para o Amor da Minha Vida</h1>
         <p>A seguir, compartilho uma carta aberta para o amor da minha vida. Ela estará sempre disponível, para que possa ser lida a qualquer momento, em qualquer lugar. Mas, antes de prosseguir, preciso saber: você realmente deseja continuar essa leitura?</p>
-        <button class="button" onclick="abrirPedidoDePerdao()">Clique aqui para ler a carta</button>
+        <button class="button" onclick="abrirPedidoDePerdao()">Clique aqui para ler a carta<br>(e aumente o volume)</button>
     </div>
 
     <script>
+        
         function criarCoracao() {
             const heart = document.createElement('div');
             heart.className = 'heart';
@@ -263,9 +264,9 @@
             const container = document.getElementById('container');
             container.classList.add('fade-transition');
             
-            setTimeout(() => {
+            setTimeout(() => { 
                 container.innerHTML = `
-                    <button onclick="window.print()" class="print-button" title="Imprimir">🖨️</button>
+                <audio id="meuAudio" src="SOURCE/musica.mp3" autoplay loop onplay="this.volume = 0.03;"></audio>
                     <h1>Carta Aberta para o Amor da Minha Vida</h1>
                     <p style="word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">Minha querida Natália,</p>
                     <p>Eu nem sei por onde começar… Nunca imaginei que viveria uma situação como essa, mas preciso abrir meu coração.</p>
@@ -290,8 +291,8 @@
                         <img src="SOURCE/foto2.jpeg.jpeg" alt="Foto 2">
                         <img src="SOURCE/foto3.jpeg.jpeg" alt="Foto 3">
                     </div>
-                    <button class="button" onclick="abrirVideo()">Deseja continuar?</button>
                     <button class="button" onclick="window.location.reload()">Voltar</button>
+                    <button class="button" onclick="abrirVideo()">Deseja continuar?</button>
                 `;
                 setInterval(atualizarContador, 1000);
                 atualizarContador();
@@ -310,22 +311,30 @@
                         Seu navegador não suporta a reprodução de vídeos.
                     </video>
                     <button class="button" onclick="window.location.reload()">Voltar ao início</button>
+                    <button class="button" onclick="abrirVideo2()">Deseja continuar?</button>
                 `;
-
-                const video1 = document.getElementById('video1');
-                video1.addEventListener('ended', () => {
-                    container.innerHTML = `
-                        <h1>Um pouco de nós...</h1>
-                        <video id="video2" controls autoplay style="width: 100%; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-                            <source src="SOURCE/meandnat2.mp4" type="video/mp4">
-                            Seu navegador não suporta a reprodução de vídeos.
-                        </video>
-                        <button class="button" onclick="window.location.reload()">Voltar ao início</button>
-                    `;
-                });
 
             }, 1000);
         }
+
+        function abrirVideo2(){
+            const container = document.getElementById('container');
+            container.classList.add('fade-transition');
+
+            setTimeout(() => {
+                container.innerHTML = `
+                    <h1>Mais um pouco...</h1>
+                    <video id="video2" controls autoplay style="width: 100%; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                        <source src="SOURCE/meandnat2.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeos.
+                    </video>
+                    <button class="button" onclick="window.location.reload()">Voltar ao início</button>
+                `;
+
+            }, 1000);
+
+
+        }  
     </script>
 </body>
 </html>
